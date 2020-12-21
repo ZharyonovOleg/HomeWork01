@@ -1,0 +1,6 @@
+seconds = int(input('Введите время в секундах: '))
+minutes_all = (seconds // 60)
+hours = (minutes_all // 60)
+minutes_need = (minutes_all - (hours * 60))
+seconds_need = (seconds - (minutes_all * 60))
+print(hours,':',minutes_need,':',seconds_need)
