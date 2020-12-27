@@ -1,0 +1,206 @@
+################   Some home work 2  ########################
+
+# for i in range(1, 6, 2):
+#     print(i)
+#
+# range(x, y, z) - использоуется для получения диапазона чисел, где x - начальное число, y - конечное число не включительно, z - шаг.
+# my_list = list(input('Enter text: ')) # я бы ещё убрал пробел сначала
+# for i in range(1, len(my_list), 2):
+#     my_list[i - 1], my_list[i] = my_list[i], my_list[i - 1] # замена с шагом 2 с первого до длины листа. Можно делать так и в других случаях: a, b = 1, 0
+# print(my_list)
+
+# второй вариант третьей задачи (через словарь):
+# seasons_dict = {
+#     1: 'Winter',
+#     2: 'Winter',
+#     3: 'Spring',
+#     4: 'Spring',
+#     5: 'Spring',
+#     6: 'Summer',
+#     7: 'Summer',
+#     8: 'Summer',
+#     9: 'Autumn',
+#     10: 'Autumn',
+#     11: 'Autumn',
+#     12: 'Winter',
+# }
+# month = int(input('Enter month: '))
+# print(seasons_dict[month])
+#
+# # третий вариант третьей задачи (через список):
+# seasons_list = ['',
+#                 'Winter',
+#                 'Winter',
+#                 'Spring',
+#                 'Spring',
+#                 'Spring',
+#                 'Summer',
+#                 'Summer',
+#                 'Summer',
+#                 'Autumn',
+#                 'Autumn',
+#                 'Autumn',
+#                 'Winter']
+# month = int(input('Enter month: '))
+# print(seasons_list[month])
+
+# enumerate(x, start=y) - получем кортеж в виде индексов и их значений, где x - список, y - с какого числа начать нумерацию(вместо старт=1 можно написать просто 1)
+# for ind, val in inumerate(my_list, start=1)
+#     print(ind, val)
+
+
+
+################   LESSON 3   ########################
+
+# print(max(1, 6, 2)) # answer - 6
+# print(max('zzz', 'aa', 'aaaa', 'zz')) # answer - zzz
+# print(max('zzz', 'aa', 'aaaa', 'zz', key=len)) # answer - aaaa (по ключу, в данном случае по длинне
+
+# print(round(2.613987)) # математическое округление до целого
+# print(round(2.613987, 2)) # математическое округление до двух знаков после запятой
+
+# for i in enumerate(list('Anastasiya')):
+#     print(i) # получаем кортежи. Можно по другому:
+# for i, val in enumerate(list('Anastasiya')):
+#     print(i, val)
+
+# # создание собственной функции:
+# def say_hello():
+#     print('HELLO !!!')
+# say_hello()
+
+# def say_hello(name):
+#     print(name, 'HELLO !!!') # можно менять местами то, что в скобках
+# say_hello('Ivan') # Ivan HELLO !!! Если оставить пусто в скобках, то будет ошибка.
+
+# def average(numbers): # numbers примет структуру list
+#     count = len(numbers)
+#     my_sum = sum(numbers)
+#     print(my_sum / count)
+#
+# avg_num = average([1, 2, 3, 4, 5])
+# print('avg_num =', avg_num) # answer - None
+
+# def average(numbers): # numbers примет структуру list
+#     count = len(numbers)
+#     my_sum = sum(numbers)
+#     return (my_sum / count) # return - присваивает значение в данном случае и работает как break, то есть после этого выполнение функции останавливается, даже если ещё сто строк дальше написано
+#
+# avg_num = average([1, 2, 3, 4, 5])
+# print('avg_num =', avg_num) # answer - None
+
+# def average(numbers):
+#     pass # pass - это временная заглушка, чтобы программа не падала и продолжала выполняться дальше, а потом вернуться и дописать ДЭФ
+# numbers = [56464, 64646, 5]
+
+# def print(text): # переименуется фнкция ПРИНТ, поэтому так делать нельзя, так как ПРИНТ изменится
+#     pass
+# print('qwe')
+
+
+# x = 100 # глобальная переменная
+# def test():
+#     x = 10 # локальная переменная, внутри функции родилась и внутри функции умерла
+# print(x) # ответ - 100, так как х внутри ДЭФ отличается от общего х и 10 не примет в основном коде
+
+# x = 100
+# def test():
+#     print(x)
+# test() # ответ - 100, потому, что к ИКСУ не присваивается ничего. Такой способ никогда не использовать, это временная заглушка!
+
+# x = 100
+# def test():
+#     global x # взятие в работу глобального ИКС
+#     x = 99
+# test()
+# print(x) # поэтому ответ - 99. ТАК ДЕЛАТЬ ТОЖЕ ПЛОХО!
+
+# x = 100
+# def test(x):
+#     x += 1
+#     return x
+# x = test(x)
+# print(x) # ответ - 101. ТАК ДЕЛАТЬ ПРАВИЛЬНО
+
+
+# def my_f(name, surname=None): # None(можно любое написать) писать, чтобы если не вводить фамилию, то будет ошибка
+#     print(name, surname)
+# my_f('Vasya', 'Kuralesov')
+# my_f('Vasya')
+
+# def my_f(name, *args): # *args(вместо args можно хоть какое наименование) - пойдёт в кортеж всё, что перечислено после name
+#     print(name, args)
+# my_f('Vasya', 10, 20, 50, 100)
+# my_f('Vasya', 5, 9000)
+
+# def my_f(name, surname, first_good): #
+#     print(name, surname, first_good)
+# my_f('Vasya', first_good=10, surname='Kuralesov') # номально выйдет, если перепутаны местами переменные
+
+# def my_f(name, **kwargs): # **kwargs(вместо kwargs можно хоть какое наименование) - пойдёт в словарь всё, что перечислено после name
+#     print(name, kwargs)
+# my_f('Vasya', first_good=10, surname='Kuralesov') #
+
+
+# names = ['Vasya', 'Nadya', 'Vova']
+# ages = [50, 30, 8, 80] # про "80" - если нет пары , то 80 никуда не пойдёт
+#
+# # for i in zip(names, ages): # будут кортежи, можно по другому далее
+# #     print(i)
+# for name, age in zip(names, ages): # будут кортежи, можно по другому далее
+#     print(name, age)
+
+# def my_pow(x): # нужные пользователю изменения в числах
+#     return x ** 2 + 5
+#
+# def my_filter(x): # для отбора определённых чисел, в данном примере положительных
+#     return x > 0
+
+# data = [-2, -5, 4, 8]
+# data_1 = [[-2, 9], [-5, -10], [4, -3], [8, 2]]
+# # # # result = []
+# # # # for i in data:
+# # # #     result.append(my_pow(i))
+# # # #
+# # # # print(result)
+# # #
+# # # result = list(map(my_pow, data))
+# #
+# # result = list(filter(my_filter, data)) # берутсячисла, которые True, то есть в данном случае больше нуля (x > 0)
+# # print(result)
+#
+# # result_1 = list(map(lambda x: x ** 2 + 5, data)) # lambda (анонимная лямбда функция) - фнукция вместо my_pow
+#
+#
+# # my_f = lambda x, y: x ** 2 + 5 - y
+# # print(my_f(2, 10))
+#
+#
+# # result_1 = list(map(lambda x: x ** 2 + 5, data))
+# # print(result_1)
+#
+# # result_2 = list(filter(lambda x: x > 0, data))
+# # print(result_2)
+
+
+# def my_f(name, surname, age):
+#     """
+#
+#     :param name:
+#     :param surname:
+#     :param age:
+#     :return:
+#     """
+
+
+########## Example **kwargs #############
+
+# def person_info(name, **kwargs):
+#     print(name)
+#     for key, val in kwargs.items():
+#         print(key, val)
+#
+# person_info('Vasya')
+# print()
+# person_info('Vasya', surname='Kuralesov', city='NJC', age=50)
+# print()
