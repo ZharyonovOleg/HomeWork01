@@ -23,6 +23,6 @@ def my_func_2(x, y):
     while y > 0:
         res = res * x
         y = y - 1
-    return round(res, 5)
+    return res
 print(my_func_2(float(input('Введите первое действительное число: ')),
               (float(input('Введите второе целое отрицательное число: ')))))
