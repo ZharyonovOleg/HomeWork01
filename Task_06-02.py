@@ -6,7 +6,8 @@ class Road:
         self.mass_5cm = 5 / 100
 
     def mass(self):
-        print('Массса использованного асфальта равна: ', self.__lenght * self.__width * self.mass_1m * self.mass_5cm)
+        print('Массса использованного асфальта равна: ',
+        int(self.__lenght * self.__width * self.mass_1m * self.mass_5cm), 'тонн')
 
 road = Road(5000, 20)
 road.mass() #### в методичке ошибка математическая, должно быть 125000 тонн
