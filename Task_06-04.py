@@ -15,44 +15,56 @@ class Car:
         print('Остановка!')
 
     def turn(self):
-        x = str(input('Введите в какую сторону совершается поворот налево или направо: '))
-        if x == ('налево'):
-            print('машина повернула налево')
-        elif x == ('направо'):
-            print('машина повернула направо')
+        if (str(input('Введите "L",'
+                      ' чтобы повернуть налево или "любую другую клавишу",'
+                      ' чтобы повернуть направо: '))) == ('L'):
+            print('Машина', car.color, car.name, 'повернула налево')
+        else:
+            print('Машина', car.color, car.name, 'повернула направо')
 
-car = Car((int(input('Введите скорость автомобиля: '))),
-          (str(input('Введите цвет автомобиля: '))),
-          (str(input('Введите марку автомобиля: '))),
-          (bool(input('Полицейская ли это машина или нет?\n Введите "True", если машина полицейская или "False",\n если машина НЕ полицейская: '))))
 
 class TownCar(Car):
 
     def show_speed(self):
         if self.speed >= 60:
-            print('Если Вы едете на городском автомобиле, то Вы превысили скорость!!!')
+            print('Если Вы едете на городском автомобиле,'
+                  ' то Вы превысили скорость!!!')
+        else:
+            print('Если Вы едете на грузовике,'
+                  ' то Вы соблюдаете скоростной режим!!!')
 
-class SportCar(TownCar):
+class SportCar(Car):
     pass
 
-class WorkCar(SportCar):
+class WorkCar(Car):
     def show_speed(self):
         if self.speed >= 40:
-            print('Если Вы едете на грузовике, то Вы превысили скорость!!!')
+            print('Если Вы едете на грузовике,'
+                  ' то Вы превысили скорость!!!')
+        else:
+            print('Если Вы едете на грузовике,'
+                  ' то Вы соблюдаете скоростной режим!!!')
 
-class PoliceCar(WorkCar):
+class PoliceCar(Car):
     pass
 
+a = int(input('Введите скорость автомобиля: '))
+b = str(input('Введите цвет автомобиля: '))
+c = str(input('Введите марку автомобиля: '))
+d = bool(input('Полицейская это машина или нет?\n Введите любую букву,'
+                      ' если машина полицейская или просто нажмите "ENTER",'
+                      '\n если машина НЕ полицейская: '))
 
-print(car.name)
+car = Car(a, b, c, d)
+
+print('Машина', car.color, car.name)
 car.go()
-print(car.name)
+print('Машина', car.color, car.name)
 car.stop()
 car.turn()
 
-town_car = TownCar
-work_car = WorkCar
+town_car = TownCar(a, b, c, d)
+work_car = WorkCar(a, b, c, d)
 
 town_car.show_speed()
-
 work_car.show_speed()
