@@ -3,7 +3,7 @@ class Worker:
         self.name = name
         self.surname = surname
         self.position = position
-        self.__income = income
+        self._income = income
 
 class Position(Worker):
 
@@ -11,13 +11,16 @@ class Position(Worker):
         print('Полное имя сотрудника: ', self.name, self.surname)
 
     def get_total_income(self):
-        print('Полный доход этого сотрудника: ', self.__income)
+        print('Полный доход этого сотрудника: ', self._income)
 
-position = Position((input('Введите имя сотрудника: ')),
-                (input('Введите фамилию сотрудника: ')),
-                (input('Введите должность сотрудника: ')),
-                    (sum({'wage': (int(input('Введите размер зарплаты: '))), 'bonus': (int(input('Введите размер премии: ')))}.values())))
-# не пойму никак почему ошибка
+a = input('Введите имя сотрудника: ')
+b = input('Введите фамилию сотрудника: ')
+c = input('Введите должность сотрудника: ')
+wage = int(input('Введите размер зарплаты: '))
+bonus = int(input('Введите размер премии: '))
+d = sum({'wage': wage, 'bonus': bonus}.values())
+
+position = Position(a, b, c, d)
 
 position.get_full_name()
 position.get_total_income()
