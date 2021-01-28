@@ -1,4 +1,4 @@
-numerator = float(input('Для деления чисел введите числитель: '))
+numerator = float(input('Для деления двух чисел введите числитель: '))
 denomerator = float(input('и знаменатель: '))
 
 class MyOwnException(Exception):
