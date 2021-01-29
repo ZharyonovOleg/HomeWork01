@@ -10,6 +10,6 @@ try:
     if denomerator == 0:
         raise MyOwnException('Negative')
     else:
-        print(float(numerator / denomerator))
+        print('Ответ: ', float(numerator / denomerator))
 except:
     print('На ноль делить нельзя')
